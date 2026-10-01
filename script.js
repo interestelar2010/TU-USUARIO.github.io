@@ -19,12 +19,12 @@ botonAbrir.addEventListener("click", () => {
     // Ocultar la pantalla inicial
     inicio.classList.add("ocultar");
 
-    // Esperar un momento antes de mostrar el mensaje
+    // Retirar la portada del flujo para que el mensaje no quede debajo.
     setTimeout(() => {
-
+        inicio.hidden = true;
         mensaje.classList.remove("oculto");
-        mensaje.classList.add("mostrar");
-
-    }, 500);
+        requestAnimationFrame(() => mensaje.classList.add("mostrar"));
+        document.getElementById("tituloMensaje").focus({ preventScroll: true });
+    }, 700);
 
 });
