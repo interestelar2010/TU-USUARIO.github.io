@@ -250,9 +250,11 @@ button:active {
 
     justify-content: center;
 
-    align-items: flex-start;
+    align-items: center;
 
-    padding-top: 20px;
+    min-height: calc(100vh - 90px);
+
+    padding: 18px 0 30px;
 
     opacity: 0;
 
@@ -277,6 +279,11 @@ button:active {
     display: none;
 }
 
+/* La portada usa display:flex; esta regla asegura que hidden sí la retire. */
+#inicio[hidden] {
+    display: none;
+}
+
 
 /* ==========================================
    TARJETA PRINCIPAL
@@ -289,7 +296,7 @@ button:active {
 
     margin: 0 auto;
 
-    padding: 60px 65px;
+    padding: 54px 65px 46px;
 
     position: relative;
 
@@ -311,6 +318,18 @@ button:active {
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
     backdrop-filter: blur(25px);
+
+    animation: aparecer-tarjeta 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.corazon {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    color: #d2a6c8;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    opacity: 0.75;
 }
 
 
@@ -354,7 +373,7 @@ button:active {
 
     color: #a895b4;
 
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .tarjeta h2 {
@@ -409,9 +428,9 @@ button:active {
 
     font-family: "Playfair Display", serif;
 
-    font-size: 21px;
+    font-size: 19px;
 
-    line-height: 1.9;
+    line-height: 1.75;
 
     font-weight: 400;
 
@@ -429,7 +448,7 @@ button:active {
 .firma {
     position: relative;
 
-    margin-top: 38px;
+    margin-top: 30px;
 
     font-size: 13px;
 
@@ -677,7 +696,7 @@ button:active {
         overflow-wrap: anywhere;
     }
 
-    .firma {
+.firma {
         font-size: 12px;
 
         line-height: 1.6;
@@ -748,4 +767,19 @@ button:active {
 
         letter-spacing: 3px;
     }
+}
+
+.te-quiero {
+    color: #e7c8df;
+    white-space: nowrap;
+}
+
+button:focus-visible {
+    outline: 2px solid #d2a6c8;
+    outline-offset: 4px;
+}
+
+@keyframes aparecer-tarjeta {
+    from { opacity: 0; transform: translateY(12px) scale(0.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
